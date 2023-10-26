@@ -1,15 +1,12 @@
-import axios from 'axios';
+import { getConfig } from '@edx/frontend-platform';
+import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 
-const getRequest = (url) => {
-  return axios.get(url).then(
-    (resp) => {
-      return resp.data;
-    },
-    (err) => {
-      throw err;
-    }
-  );
+const getCourses = () => {
+  const client = getAuthenticatedHttpClient();
+  return client.get(`${getConfig().LMS_BASE_URL}/api/cookiecutter_courses/v1/list/`)
+    .then(res => res.data)
+    .catch(err => ({ error: (err && err.response && err.response.data) || 'Network Error' }));
 };
 
-export default getRequest;
-
+// eslint-disable-next-line import/prefer-default-export
+export default getCourses;
