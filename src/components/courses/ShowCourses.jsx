@@ -1,8 +1,8 @@
 import { Container } from "@edx/paragon";
-import {fetchCoursesApi} from "./request";
+import fetchCoursesApi from "./request";
 
 const ShowCourses = () => {
-  const courses = fetchCoursesApi();
+  const courses = await fetchCoursesApi();
   console.log("data",courses)
   return (
     <Container>
