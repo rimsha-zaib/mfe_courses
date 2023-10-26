@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 
-// import { Container, Spinner } from "@edx/paragon";
+import { Container, Spinner } from "@edx/paragon";
 // import Grid from "@mui/material/Grid";
 // import Card from "@mui/material/Card";
 // import CardContent from "@mui/material/CardContent";
@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 // import CardMedia from "@mui/material/CardMedia";
 // import Typography from "@mui/material/Typography";
 
-// import useHttp from "../../hooks/use-https";
+import useHttp from "../../hooks/use-https";
 
 const ShowCourses = () => {
   const [courses, setCourses] = useState([]);
