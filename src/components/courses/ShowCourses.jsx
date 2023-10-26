@@ -21,7 +21,6 @@ const ShowCourses = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
   console.log('data', courses);
 
   return (
