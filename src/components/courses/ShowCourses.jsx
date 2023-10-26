@@ -1,9 +1,9 @@
 import { Container } from "@edx/paragon";
-import fetchCoursesApi from "./request";
+import { getConfig } from '@edx/frontend-platform';
 
 const ShowCourses = async () => { 
-  const courses = await fetchCoursesApi();
-  console.log("data",courses)
+  const lmsUrl = getConfig().LMS_BASE_URL;
+  console.log("lmsurl",lmsUrl);
   return (
     <Container>
        <h1>courses</h1>
