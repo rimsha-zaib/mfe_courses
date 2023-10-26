@@ -12,3 +12,4 @@ const getRequest = (url) => {
 };
 
 export default getRequest;
+
