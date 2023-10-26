@@ -12,13 +12,14 @@ export default function ShowCourses() {
       console.log("Response data:", data); // Log the parsed response data
     })
     .catch(error => {
+      console.log("Error:", error)
       console.error("Error:", error);
     });
 
   return (
     <Container className="py-5">
       <h1>Example courses</h1>
-      <p>Hello jee!</p>
+      <p>Welcome !</p>
     </Container>
   )
 }
