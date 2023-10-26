@@ -1,6 +1,6 @@
 import { Container } from '@edx/paragon';
 
-const ExamplePage = () => (
+const ShowCourses = () => (
   <main>
     <Container className="py-5">
       <h1>Example Page</h1>
@@ -9,4 +9,4 @@ const ExamplePage = () => (
   </main>
 );
 
-export default ExamplePage;
+export default ShowCourses;
