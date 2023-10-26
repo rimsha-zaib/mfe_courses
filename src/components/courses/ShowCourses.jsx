@@ -1,7 +1,4 @@
 import { Container } from '@edx/paragon';
-import React, { useEffect, useState } from 'react'; 
-
-import React from 'react'
 
 export default function ShowCourses() {
     const response = fetch("http://apps.local.overhang.io:8000/api/cookiecutter_courses/v1/list/")
