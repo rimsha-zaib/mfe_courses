@@ -1,12 +1,12 @@
-// import { getConfig } from '@edx/frontend-platform';
-// import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
+import { getConfig } from "@edx/frontend-platform";
+import getAuthenticatedHttpClient from "@edx/frontend-platform/auth";
 
-// const getCourses = () => {
-//   const client = getAuthenticatedHttpClient();
-//   return client.get(`${getConfig().LMS_BASE_URL}/api/cookiecutter_courses/v1/list/`)
-//     .then(res => res.data)
-//     .catch(err => ({ error: (err && err.response && err.response.data) || 'Network Error' }));
-// };
 
-// // eslint-disable-next-line import/prefer-default-export
-// export default getCourses;
+const fetchCoursesApi = async () => {
+  const httpClient = getAuthenticatedHttpClient();
+  const response = await httpClient.get(`${getConfig().LMS_BASE_URL}/api/cookiecutter_courses/v1/list/`);
+  const data = await response.json();
+  return data;
+}
+
+export default fetchCoursesApi;

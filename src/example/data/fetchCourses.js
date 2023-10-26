@@ -1,11 +1,12 @@
-// import { getConfig } from '@edx/frontend-platform';
-// import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
+import { getConfig } from "@edx/frontend-platform";
+import getAuthenticatedHttpClient from "@edx/frontend-platform/auth";
 
-// const fetchCourses = () => {
-//   const client = getAuthenticatedHttpClient();
-//   return client.get(`${getConfig().LMS_BASE_URL}/api/courses_catalog/v1/list/`)
-//     .then(res => res.data)
-//     .catch(err => ({ error: (err && err.response && err.response.data) || 'Network Error' }));
-// };
 
-// export { fetchCourses };
+const fetchCoursesApi = async () => {
+  const httpClient = getAuthenticatedHttpClient();
+  const response = await httpClient.get(`${getConfig().LMS_BASE_URL}/api/courses-list/`);
+  const data = await response.json();
+  return data;
+}
+
+export default fetchCoursesApi;
