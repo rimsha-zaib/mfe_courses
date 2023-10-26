@@ -3,23 +3,25 @@ import { Container } from '@edx/paragon';
 
 const ShowCourses = () => {
   const [courses, setCourses] = useState([]);
+
   const fetchData = () => {
     fetch('api/cookiecutter_courses/v1/list/')
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error(`Network response was not ok (status ${response.status})`);
         }
         return response.json();
       })
       .then((data) => setCourses(data))
       .catch((error) => {
         console.log('Error fetching data:', error);
-        // Handle the error (e.g., set an error state or display an error message)
       });
   };
+
   useEffect(() => {
     fetchData();
   }, []);
+
   console.log('data', courses);
 
   return (
