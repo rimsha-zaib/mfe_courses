@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from '@edx/paragon';
+import getRequest from './request';
 
 const ShowCourses = () => {
-  const [courses, setCourses] = useState([]);
 
-  const fetchData = () => {
-    fetch('http://local.overhang.io:8000/api/cookiecutter_courses/v1/list/')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Network response was not ok (status ${response.status})`);
-        }
-        return response.json();
-      })
-      .then((data) => setCourses(data))
-      .catch((error) => {
-        console.log('Error fetching data:', error);
-      });
-  };
+  const [courses, setCourses] = useState([]);
+  const url = 'http://local.overhang.io:8000/api/cookiecutter_courses/v1/list/';
+  async function handleSearch() {
+    const response = await getRequest(url);
+    console.log("response", response);
+    setCourses(response);
+  }
 
   useEffect(() => {
-    fetchData();
+    handleSearch();
   }, []);
-  console.log('data', courses);
-
   return (
     <Container>
       <h1>courses</h1>
