@@ -1,9 +1,20 @@
 import { Container } from '@edx/paragon';
 
 export default function ShowCourses() {
-    const response = fetch("http://apps.local.overhang.io:8000/api/cookiecutter_courses/v1/list/")
-    console.log("response",response,response.data)
-  
+  fetch("http://apps.local.overhang.io:8000/api/cookiecutter_courses/v1/list/", { mode: "no-cors" })
+    .then(response => {
+      if (response.ok) {
+        return response.json(); // Parse the response as JSON
+      }
+      throw new Error(`Request failed with status: ${response.status}`);
+    })
+    .then(data => {
+      console.log("Response data:", data); // Log the parsed response data
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+
   return (
     <Container className="py-5">
       <h1>Example courses</h1>
@@ -11,6 +22,7 @@ export default function ShowCourses() {
     </Container>
   )
 }
+
 
 
 
