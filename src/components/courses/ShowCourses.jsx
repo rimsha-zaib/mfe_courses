@@ -10,7 +10,7 @@ const ShowCourses = () => {
         }
         return response.json();
       })
-      .then((data) => setCourses(data))
+      .then((data) => setCourses(data.results))
       .catch((error) => {
         console.log('Error fetching data:', error);
         console.log('Error status:', error.status);
