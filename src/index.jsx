@@ -11,11 +11,13 @@ import Footer from '@edx/frontend-component-footer';
 import messages from './i18n';
 import ShowCourses from './components/courses/ShowCourses';
 import './index.scss';
+import SearchBar from './components/SearchBar';
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider>
       <Header />
+      <SearchBar />
       <ShowCourses />
       <Footer />
     </AppProvider>,
@@ -30,9 +32,3 @@ subscribe(APP_INIT_ERROR, (error) => {
 initialize({
   messages,
 });
-
-
-
-
-
-
