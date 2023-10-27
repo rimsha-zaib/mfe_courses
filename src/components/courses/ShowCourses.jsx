@@ -4,6 +4,7 @@ import {
 import fetchCoursesApi from './data/fetchCourses';
 const ShowCourses = () => {
   const courses = fetchCoursesApi();
+  console.log("couerses",courses)
   return (
     <main>
       <Container className="py-5 px-5">
@@ -25,13 +26,9 @@ const ShowCourses = () => {
                 />
                 <Card.Header title={course.name} subtitle={course.number} />
                 <Card.Body className="px-3.5">By {course.org}</Card.Body>
-                <Card.Section>
-                  Starts on {course.start_display}
-                  <div>{course.pacing[0].toUpperCase() + course.pacing.substring(1)}-paced course{course.effort && `, Requires ${course.effort} min to complete`}</div>
-                </Card.Section>
                 <Card.Footer>
-//                   <Button as="a" href={`$http://local.overhang.io:8000/courses/${course.course_id}/about`}>View Course</Button>
-//              </Card.Footer>
+                <Button as="a" href={`http://local.overhang.io:8000/courses/${course.course_id}/about`}>View Course</Button>
+             </Card.Footer>
               </Card>
             ))}
           </CardGrid>
