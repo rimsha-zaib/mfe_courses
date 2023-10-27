@@ -7,7 +7,8 @@ const ShowCourses = () => {
   return (
     <main>
       <Container className="py-5 px-5">
-        <h1>Edx Course Catalog</h1>
+      <h1>edX courses</h1>
+      <p>Welcome to Edx courses!</p>
         <Container className="pt-5">
           <CardGrid
             columnSizes={{
@@ -28,6 +29,9 @@ const ShowCourses = () => {
                   Starts on {course.start_display}
                   <div>{course.pacing[0].toUpperCase() + course.pacing.substring(1)}-paced course{course.effort && `, Requires ${course.effort} min to complete`}</div>
                 </Card.Section>
+                <Card.Footer>
+//                   <Button as="a" href={`$http://local.overhang.io:8000/courses/${course.course_id}/about`}>View Course</Button>
+//              </Card.Footer>
               </Card>
             ))}
           </CardGrid>
