@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import {
-  Container, CardGrid, Spinner, Card, Button, useMediaQuery, breakpoints,
+  Container, CardGrid, Card, Button
 } from '@edx/paragon';
-import { Container } from '@edx/paragon';
 import fetchCoursesApi from './data/fetchCourses';
 const ShowCourses = () => {
   const courses = fetchCoursesApi();
