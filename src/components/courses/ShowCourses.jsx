@@ -9,7 +9,6 @@ const ShowCourses = () => {
       <main>
         <Container className="py-5 px-5">
           <h1>Edx Course Catalog</h1>
-  
           <Container className="pt-5">
               <CardGrid
                 columnSizes={{
@@ -20,7 +19,7 @@ const ShowCourses = () => {
               >
   
                 {
-                courses.results.map((course) => (
+                courses.map((course) => (
   
                   <Card className="edx-course-catalog" key={course.name} style={{ width: isExtraSmall ? '100%' : '20rem' }} isClickable>
                     <Card.ImageCap
