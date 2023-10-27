@@ -23,8 +23,13 @@ const ShowCourses = () => {
   console.log('data', courses);
   return (
     <Container>
-      <h1>Edx courses</h1>
+      <h1>courses</h1>
       <p>Welcome to Edx courses!</p>
+      <ul>
+        {courses.map((course) => (
+          <li key={course.id}>{course.name}</li>
+        ))}
+      </ul>
     </Container>
   );
 };
