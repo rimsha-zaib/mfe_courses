@@ -3,10 +3,8 @@ import { Container } from '@edx/paragon';
 const ShowCourses = () => {
   const [courses, setCourses] = useState([]);
   const fetchData = () => {
-    fetch('http://local.overhang.io:8000/api/cookiecutter_courses/v1/list/', {
-      method: 'GET',
-      mode: 'no-cors', // Set the mode to 'no-cors'
-    }).then((response) => {
+    fetch('http://local.overhang.io:8000/api/cookiecutter_courses/v1/list/')
+      .then((response) => {
         if (!response.ok) {
           throw new Error(`Network response was not ok (status ${response.status})`);
         }
@@ -25,13 +23,8 @@ const ShowCourses = () => {
   console.log('data', courses);
   return (
     <Container>
-      <h1>courses</h1>
+      <h1>Edx courses</h1>
       <p>Welcome to Edx courses!</p>
-      <ul>
-        {courses.map((course) => (
-          <li key={course.id}>{course.name}</li>
-        ))}
-      </ul>
     </Container>
   );
 };
