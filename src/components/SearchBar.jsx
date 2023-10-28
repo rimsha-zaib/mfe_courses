@@ -30,7 +30,7 @@ const SearchBar = ({ courses }) => {
       {/* Render the search results here */}
       {searchResults.map((course) => (
         <div key={course.id}>{course.name}</div>
-      )}
+      ))}
     </div>
   );
 };
