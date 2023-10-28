@@ -12,12 +12,14 @@ import messages from './i18n';
 import ShowCourses from './components/courses/ShowCourses';
 import './index.scss';
 import SearchBar from './components/SearchBar';
+import fetchCoursesApi from './components/courses/data/fetchCourses';
 
 subscribe(APP_READY, () => {
+  const courses = fetchCoursesApi();
   ReactDOM.render(
     <AppProvider>
       <Header />
-      <SearchBar />
+      <SearchBar courses={courses} />
       <ShowCourses />
       <Footer />
     </AppProvider>,

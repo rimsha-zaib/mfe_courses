@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const SearchBar = () => {
-  // Add your search bar JSX here
+const SearchBar = ({ courses }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  // Handle search input change
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Handle the search logic when the "Search" button is clicked
+  const handleSearchClick = () => {
+    const filteredCourses = courses.filter((course) =>
+      course.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSearchResults(filteredCourses);
+  };
+
   return (
     <div className="search-bar">
-      <input type="text" placeholder="Search courses" />
-      <button>Search</button>
+      <input
+        type="text"
+        placeholder="Search courses by name"
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
+      <button onClick={handleSearchClick}>Search</button>
+
+      {/* Render the search results here */}
+      {searchResults.map((course) => (
+        <div key={course.id}>{course.name}</div>
+      )}
     </div>
   );
 };
