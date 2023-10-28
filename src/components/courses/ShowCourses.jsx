@@ -4,7 +4,6 @@ import {
 import fetchCoursesApi from './data/fetchCourses';
 const ShowCourses = () => {
   const courses = fetchCoursesApi();
-  const isExtraSmall = useMediaQuery({maxWidth: breakpoints.small.maxWidth});
   console.log("couerses",courses)
   return (
     <main>
@@ -20,7 +19,7 @@ const ShowCourses = () => {
             }}
           >
             {courses.map((course) => (
-              <Card style={{width: isExtraSmall ? "100%" : "40%"}}>
+              <Card key={course.name}>
               <Card.ImageCap
                 src={course.media.image.raw}
                 srcAlt="Card image"
