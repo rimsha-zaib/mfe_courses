@@ -4,6 +4,7 @@ import {
 import fetchCoursesApi from './data/fetchCourses';
 const ShowCourses = () => {
   const courses = fetchCoursesApi();
+  const isExtraSmall = useMediaQuery({maxWidth: breakpoints.small.maxWidth});
   console.log("couerses",courses)
   return (
     <main>
@@ -19,17 +20,30 @@ const ShowCourses = () => {
             }}
           >
             {courses.map((course) => (
-              <Card className="edx-course-catalog" key={course.name}>
-                <Card.ImageCap
-                  src={course.media.image.raw}
-                  alt={course.name}
-                />
-                <Card.Header title={course.name} subtitle={course.number} />
-                <Card.Body className="px-3.5">By {course.org}</Card.Body>
-                <Card.Footer>
-                <Button as="a" href={`http://local.overhang.io:8000/courses/${course.course_id}/about`}>View Course</Button>
-             </Card.Footer>
-              </Card>
+              <Card style={{width: isExtraSmall ? "100%" : "40%"}}>
+              <Card.ImageCap
+                src={course.media.image.raw}
+                srcAlt="Card image"
+                logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EdX_newer_logo.svg/2560px-EdX_newer_logo.svg.png"
+                fallbackLogoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EdX_newer_logo.svg/2560px-EdX_newer_logo.svg.png"
+                logoAlt="Card logo"
+              />
+              <Card.Header title={course.name} subtitle={course.number} />
+              <Card.Footer>
+              <Button as="a" href={`http://local.overhang.io:8000/courses/${course.course_id}/about`}>View Course</Button>
+              </Card.Footer>
+          </Card>
+            //   <Card className="edx-course-catalog" key={course.name}>
+            //     <Card.ImageCap
+            //       src={course.media.image.raw}
+            //       alt={course.name}
+            //     />
+            //     <Card.Header title={course.name} subtitle={course.number} />
+            //     <Card.Body className="px-3.5">By {course.org}</Card.Body>
+            //     <Card.Footer>
+            //     <Button as="a" href={`http://local.overhang.io:8000/courses/${course.course_id}/about`}>View Course</Button>
+            //  </Card.Footer>
+            //   </Card>
             ))}
           </CardGrid>
         </Container>
