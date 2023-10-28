@@ -31,7 +31,19 @@ const SearchBar = () => {
 
       {/* Render the search results here */}
       {searchResults.map((course) => (
-        <div key={course.id}>{course.name}</div>
+         <Card key={course.name}>
+         <Card.ImageCap
+           src={course.media.image.raw}
+           srcAlt="Card image"
+           logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EdX_newer_logo.svg/2560px-EdX_newer_logo.svg.png"
+           fallbackLogoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EdX_newer_logo.svg/2560px-EdX_newer_logo.svg.png"
+           logoAlt="Card logo"
+         />
+         <Card.Header title={course.name} subtitle={course.number} />
+         <Card.Footer>
+         <Button as="a" href={`http://local.overhang.io:8000/courses/${course.course_id}/about`}>View Course</Button>
+         </Card.Footer>
+     </Card>
       ))}
     </div>
   );
