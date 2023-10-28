@@ -25,12 +25,12 @@ const SearchBar = ({ courses }) => {
         value={searchQuery}
         onChange={handleSearchChange}
       />
-      <button onClick={handleSearchClick}>Search</button>
+      {/* <button onClick={handleSearchClick}>Search</button> */}
 
       {/* Render the search results here */}
-      {searchResults.map((course) => (
+      {/* {searchResults.map((course) => (
         <div key={course.id}>{course.name}</div>
-      ))}
+      ))} */}
     </div>
   );
 };
