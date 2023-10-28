@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import fetchCoursesApi from './courses/data/fetchCourses';
 
-const SearchBar = ({ courses }) => {
+const SearchBar = () => {
+  const courses = fetchCoursesApi();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -25,12 +27,12 @@ const SearchBar = ({ courses }) => {
         value={searchQuery}
         onChange={handleSearchChange}
       />
-      {/* <button onClick={handleSearchClick}>Search</button> */}
+      <button onClick={handleSearchClick}>Search</button>
 
       {/* Render the search results here */}
-      {/* {searchResults.map((course) => (
+      {searchResults.map((course) => (
         <div key={course.id}>{course.name}</div>
-      ))} */}
+      ))}
     </div>
   );
 };
