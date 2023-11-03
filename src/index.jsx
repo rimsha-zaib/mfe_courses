@@ -18,7 +18,6 @@ subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider>
       <Header />
-      <SearchBar />
       <ShowCourses />
       <Footer />
     </AppProvider>,

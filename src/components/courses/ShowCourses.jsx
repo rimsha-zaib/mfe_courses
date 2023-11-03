@@ -8,7 +8,7 @@ const ShowCourses = () => {
   return (
     <main>
       <Container className="py-5 px-5">
-      <h1>edX courses</h1>
+      <h1>edX courses with tutor nightly</h1>
       <p>Welcome to Edx courses!</p>
         <Container className="pt-5">
           <CardGrid
