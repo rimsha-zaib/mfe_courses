@@ -1,0 +1,35 @@
+{% load i18n l10n %}
+
+<div class="wrapper-comp-settings is-active editor-with-buttons" id="settings-tab">
+    <ul class="list-input settings-list">
+
+        <!-- JupyterLite URL input -->
+        <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="jupyterlite_url">{% trans "JupyterLite Service URL" %}</label>
+                <input class="input setting-input" name="jupyterlite_url" id="jupyterlite_url" type="text" />
+            </div>
+            <span class="tip setting-help">{% trans "Enter the JupyterLite Service URL" %}</span>
+        </li>
+         <!-- Allow upload of .ipynb file -->
+        <li class="field comp-setting-entry is-set">
+            <div class="wrapper-comp-setting">
+                <label class="label setting-label" for="uploaded_file">{% trans "Upload .ipynb file" %}</label>
+                <input class="input setting-input" name="uploaded_file" id="uploaded_file" type="file" accept=".ipynb" />
+            </div>
+        </li>
+
+    </ul>
+
+    <div class="xblock-actions">
+        <ul>
+            <!-- Form submission buttons -->
+            <li class="action-item">
+                <a href="" class="button action-primary save-button">{% trans "Save" %}</a>
+            </li>
+            <li class="action-item">
+                <a href="" class="button cancel-button">{% trans "Cancel" %}</a>
+            </li>
+        </ul>
+    </div>
+</div>
