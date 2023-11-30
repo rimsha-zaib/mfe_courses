@@ -44,26 +44,17 @@ class MyXBlock(XBlock):
         rendered_template = template.render(Context({'context': context}))
         return rendered_template
     
+    
+    
     def student_view(self, context=None):
         file_name = "/Users/rimsha.zaib/Library/Application Support/tutor/env/build/openedx/requirements/myxblock/test1.ipynb" 
-        # file_name = "https://jupyter.org/try-jupyter/lab?path=Untitled1.ipynb" 
-        jupyterlite_iframe = '<iframe src="{}?fromURL={}" width="100%" height="600px" style="border: none;"></iframe>'.format(self.jupyterlite_url, file_name)
-        print(";;;;;;;;;;;;;;;;;;;;jupyterlite_iframe       ;;;;;;;;;;;;;;;;;;;",jupyterlite_iframe)
+        external_url = self.get_external_url(file_name)
+        jupyterlite_iframe = f'<iframe src="{external_url}" width="100%" height="600px" style="border: none;"></iframe>'
+        print(";;;;;;;;;;;;;;;;;;;;jupyterlite_iframe     ---------------------  ;;;;;;;;;;;;;;;;;;;",jupyterlite_iframe)
         html = self.resource_string("static/html/myxblock.html").format(jupyterlite_iframe=jupyterlite_iframe, self=self)
-        frag = Fragment(html)  # Use the 'html' variable here
+        frag = Fragment(html)
         frag.initialize_js('MyXBlock')
         return frag
-
-    
-    
-    # def student_view(self, context=None):
-    #     file_name = "/Users/rimsha.zaib/Library/Application Support/tutor/env/build/openedx/requirements/myxblock/test1.ipynb" 
-    #     external_url = self.get_external_url(file_name)
-    #     jupyterlite_iframe = f'<iframe src="{external_url}" width="100%" height="600px" style="border: none;"></iframe>'
-    #     html = self.resource_string("static/html/myxblock.html").format(jupyterlite_iframe=jupyterlite_iframe, self=self)
-    #     frag = Fragment(html)
-    #     frag.initialize_js('MyXBlock')
-    #     return frag
     
     # def student_view(self, context=None):
     #     file_name = "https://jupyter.org/try-jupyter/lab?path=Untitled1.ipynb"
